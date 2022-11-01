@@ -11,7 +11,7 @@ abstract class BackendModule {
   @singleton
   Future<Dio> dio() async {
     final Dio dio = Dio();
-    dio.options.baseUrl = '';
+    dio.options.baseUrl = 'http://pokemon.test.dormzi.com/';
     dio.options.headers['Content-Type'] = 'application/json';
 
     return dio;
