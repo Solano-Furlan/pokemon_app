@@ -20,9 +20,17 @@ class PokemonListingLayout extends StatelessWidget {
       body: BlocBuilder<PokemonListingCubit, PokemonListingState>(
         builder: (context, state) {
           if (state is PokemonListingErrorState) {
-            return TextButton(
-              onPressed: () => context.read<PokemonListingCubit>().initialize(),
-              child: const Text('Something went wrong, please try again.'),
+            return Center(
+              child: ElevatedButton(
+                onPressed: () =>
+                    context.read<PokemonListingCubit>().initialize(),
+                child: const Text(
+                  'Something went wrong, please try again.',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             );
           }
           if (state is PokemonListingLoadedState) {

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dio/dio.dart';
 import 'package:pokemon_app/features/selected_pokemon/data/normalizers/selected_pokemon.normalizer.dart';
 import 'package:pokemon_app/features/selected_pokemon/domain/selected_pokemon.interface.dart';

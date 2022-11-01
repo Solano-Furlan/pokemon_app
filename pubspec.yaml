@@ -17,6 +17,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   injectable: ^1.5.3
   auto_route: ^5.0.2
+  flag: ^6.0.0
 
 dev_dependencies:
   flutter_test:
