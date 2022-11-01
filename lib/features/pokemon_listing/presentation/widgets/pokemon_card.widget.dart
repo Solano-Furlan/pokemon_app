@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/core/router/routes.gr.dart';
 import 'package:pokemon_app/features/pokemon_listing/domain/preview_pokemon.interface.dart';
 
 class PokemonCard extends StatelessWidget {
@@ -12,7 +14,12 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => AutoRouter.of(context).push(
+        SelectedPokemonRoute(
+          id: pokemon.id,
+          name: pokemon.name,
+        ),
+      ),
       child: Card(
         clipBehavior: Clip.hardEdge,
         shape: RoundedRectangleBorder(

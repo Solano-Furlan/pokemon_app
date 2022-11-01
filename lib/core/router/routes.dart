@@ -3,7 +3,7 @@ import 'package:pokemon_app/features/pokemon_listing/presentation/pokemon_listin
 import 'package:pokemon_app/features/selected_pokemon/presentation/selected_pokemon.screen.dart';
 
 @MaterialAutoRouter(
-  replaceInRouteName: 'Page,Route',
+  replaceInRouteName: 'Screen,Route',
   routes: <AutoRoute>[
     AutoRoute(
       path: '/pokemon-listing',
@@ -11,7 +11,7 @@ import 'package:pokemon_app/features/selected_pokemon/presentation/selected_poke
       initial: true,
     ),
     AutoRoute(
-      path: '/selected-pokemon/:id',
+      path: '/selected-pokemon/:name',
       page: SelectedPokemonScreen,
     ),
   ],

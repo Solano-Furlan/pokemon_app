@@ -25,21 +25,19 @@ class AppRouter extends _i3.RootStackRouter {
 
   @override
   final Map<String, _i3.PageFactory> pagesMap = {
-    PokemonListingScreen.name: (routeData) {
+    PokemonListingRoute.name: (routeData) {
       return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.PokemonListingScreen(),
       );
     },
-    SelectedPokemonScreen.name: (routeData) {
-      final pathParams = routeData.inheritedPathParams;
-      final args = routeData.argsAs<SelectedPokemonScreenArgs>(
-          orElse: () =>
-              SelectedPokemonScreenArgs(id: pathParams.getString('id')));
+    SelectedPokemonRoute.name: (routeData) {
+      final args = routeData.argsAs<SelectedPokemonRouteArgs>();
       return _i3.MaterialPageX<dynamic>(
         routeData: routeData,
         child: _i2.SelectedPokemonScreen(
           id: args.id,
+          name: args.name,
           key: args.key,
         ),
       );
@@ -55,60 +53,64 @@ class AppRouter extends _i3.RootStackRouter {
           fullMatch: true,
         ),
         _i3.RouteConfig(
-          PokemonListingScreen.name,
+          PokemonListingRoute.name,
           path: '/pokemon-listing',
         ),
         _i3.RouteConfig(
-          SelectedPokemonScreen.name,
-          path: '/selected-pokemon/:id',
+          SelectedPokemonRoute.name,
+          path: '/selected-pokemon/:name',
         ),
       ];
 }
 
 /// generated route for
 /// [_i1.PokemonListingScreen]
-class PokemonListingScreen extends _i3.PageRouteInfo<void> {
-  const PokemonListingScreen()
+class PokemonListingRoute extends _i3.PageRouteInfo<void> {
+  const PokemonListingRoute()
       : super(
-          PokemonListingScreen.name,
+          PokemonListingRoute.name,
           path: '/pokemon-listing',
         );
 
-  static const String name = 'PokemonListingScreen';
+  static const String name = 'PokemonListingRoute';
 }
 
 /// generated route for
 /// [_i2.SelectedPokemonScreen]
-class SelectedPokemonScreen
-    extends _i3.PageRouteInfo<SelectedPokemonScreenArgs> {
-  SelectedPokemonScreen({
+class SelectedPokemonRoute extends _i3.PageRouteInfo<SelectedPokemonRouteArgs> {
+  SelectedPokemonRoute({
     required String id,
+    required String name,
     _i4.Key? key,
   }) : super(
-          SelectedPokemonScreen.name,
-          path: '/selected-pokemon/:id',
-          args: SelectedPokemonScreenArgs(
+          SelectedPokemonRoute.name,
+          path: '/selected-pokemon/:name',
+          args: SelectedPokemonRouteArgs(
             id: id,
+            name: name,
             key: key,
           ),
-          rawPathParams: {'id': id},
+          rawPathParams: {'name': name},
         );
 
-  static const String name = 'SelectedPokemonScreen';
+  static const String name = 'SelectedPokemonRoute';
 }
 
-class SelectedPokemonScreenArgs {
-  const SelectedPokemonScreenArgs({
+class SelectedPokemonRouteArgs {
+  const SelectedPokemonRouteArgs({
     required this.id,
+    required this.name,
     this.key,
   });
 
   final String id;
 
+  final String name;
+
   final _i4.Key? key;
 
   @override
   String toString() {
-    return 'SelectedPokemonScreenArgs{id: $id, key: $key}';
+    return 'SelectedPokemonRouteArgs{id: $id, name: $name, key: $key}';
   }
 }
